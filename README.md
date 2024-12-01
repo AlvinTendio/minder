@@ -7,9 +7,10 @@ Scrim is good for microservice application and repository pattern is good for im
 Linting: i am using sonarlint (but golang has golint as built-in tool)
 
 How to run the service:
-1. make properties file (minder.properties, minder.yaml, minder.env, minder.ini, etc) in /opt/secret/ (for windows you can make in C drive) and run go mod tidy for getting all required third party libraries
-2. change database config in properties file according to your specific database configuration
-3. create table with this query
+1. make properties file (minder.properties, minder.yaml, minder.env, minder.ini, etc) in /opt/secret/ (for windows you can make in C drive) (for easy method just copy minder_.properties ke c drive dan ubah jadi minder.properties)
+2. run go mod tidy for getting all required third party libraries
+3. change database config in properties file according to your specific database configuration
+4. create table with this query
 CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL UNIQUE,
@@ -34,7 +35,7 @@ CREATE TABLE Swipes (
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
     FOREIGN KEY (target_user_id) REFERENCES Users(user_id)
 );
-4. you can run
+5. you can run
 for development
 "go run main.go" in minder project
 for production:
@@ -98,4 +99,4 @@ windows/amd64
 windows/arm
 windows/arm64
 
-5. untuk register gambar yang dimasukan sudah dalam bentuk base64 (https://emn178.github.io/online-tools/base64_encode_file.html)
+6. untuk register gambar yang dimasukan sudah dalam bentuk base64 (https://emn178.github.io/online-tools/base64_encode_file.html)
